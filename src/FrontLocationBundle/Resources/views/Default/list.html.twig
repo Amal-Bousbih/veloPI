@@ -1,0 +1,38 @@
+{% extends 'front.html.twig' %}
+
+
+{% block title %} Zones Des Boutique de Location {% endblock %}
+{% block main %}
+
+ {{ parent() }}
+
+<div class="span12">
+        <span class="span3">
+            <label>
+                Saison<br />
+                <select>
+                    <option>Saison 2012/2013</option>
+                </select>
+            </label>
+        </span>
+    <span class="span3">
+            <label>
+                Compétition<br />
+                <select>
+                    <option>Amicaux 2012/2013</option>
+                </select>
+            </label>
+        </span>
+    <span class="span3">
+            <label>
+                Journée<br />
+                <select>
+                    <option>J1</option>
+                </select>
+            </label>
+        </span>
+</div>
+
+{% include "@FrontLocation/Default/afficher_velo.html.twig" %}
+
+{% endblock %}

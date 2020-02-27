@@ -1,0 +1,56 @@
+{% extends 'front.html.twig' %}
+{% block title %} Velo Disponible{% endblock %}
+
+{% block main %}
+
+    <section class="latest-products spad">
+        <div class="container">
+            <div class="product-filter">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <div class="section-title">
+                            <h2>Latest Products</h2>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="product-list">
+                {% for velo in velos %}
+                <div class="col-lg-3 col-sm-6 mix all dresses bags">
+                    <div class="single-product-item">
+
+                        <figure>
+                            <a href="#"><img src="{{ asset('client/img/products/img-1.jpg') }}" alt=""></a>
+                            <div class="p-status">
+                                <div class="card-text text-sm-center">
+                                    <a href="{{ path('formulaire' ,{'id':velo.zone.id ,'idz':velo.idz})}}">
+
+                                        To rent</a>
+
+                                </div>
+                            </div>
+                        </figure>
+
+                        <div class="product-text">
+                            <h6>  <div class="location text-sm-center"> Name : {{ velo.nom }}</div></h6>
+                            <h6><div class="location text-sm-center"><i class="fa fa-map-marker"></i> Area : {{ velo.zone.nom }}</div></h6>
+                            <h6><div class="location text-sm-center"> Start of Service Date : {{ velo.Debutservice.date|date("m/d/Y") }}</div></h6>
+                            <h6><div class="location text-sm-center"> Type : {{ velo.type }}</div></h6>
+
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+
+                <div class="col-lg-3 col-sm-6 mix all dresses bags">
+
+
+            </div>
+
+        </div>
+        </div>
+    </section>
+{% endblock %}

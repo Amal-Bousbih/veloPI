@@ -1,0 +1,51 @@
+{% extends 'back.html.twig' %}
+{% block title %} Espace Admin - Accueil {% endblock %}
+{% block css %}
+
+{% endblock %}
+{% block content %}
+    <div class="animated fadeIn">
+        <div class="animated fadeIn">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Stock Location</strong>
+                        </div>
+                        <div class="card-body">
+                            <div id="pay-invoice">
+                                <div class="card-body">
+                                    <div class="card-title">
+                                        <h3 class="text-center">Actualiser Zone</h3>
+                                    </div>
+                                    <hr>
+                                    <form action="" method="POST">
+                                        <div class="form-group">
+                                            <label for="nom" class="control-label mb-1">Nom Zone</label>
+                                            <input id="nom" name="nom" type="text" class="form-control" aria-required="true" aria-invalid="false" value="{{ zones.nom }}">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="stock" class="control-label mb-1">Nom Zone</label>
+                                            <input id="stock" name="stock" type="number" class="form-control" aria-required="true" aria-invalid="false" value="{{ zones.stock }}">
+                                        </div>
+
+                                        <div>
+                                            <button  id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
+                                                <span  id="payment-button-amount" >Actualiser</span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
