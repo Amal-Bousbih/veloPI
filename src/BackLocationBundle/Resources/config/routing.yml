@@ -1,0 +1,43 @@
+back_location_homepage:
+    path:     /
+    defaults: { _controller: BackLocationBundle:Default:index }
+
+back_location_ajouter_zone:
+    path: /ajouterZone
+    defaults: { _controller: BackLocationBundle:Zone:zone }
+
+back_location_afficher_zones:
+    path: /afficherZones
+    defaults: { _controller: BackLocationBundle:Zone:afficher }
+
+back_location_ajouter_velo:
+    path: /ajouterVel
+    defaults: { _controller: BackLocationBundle:Velo:ajouter }
+
+back_location_update:
+    path: /update/{id}
+    defaults: { _controller: BackLocationBundle:Zone:update}
+
+back_location_afficher_velos:
+    path: /afficherVelos
+    defaults: { _controller: BackLocationBundle:Velo:afficher }
+
+back_location_Supprimer_Zone:
+    path: /deleteZones/{id}
+    defaults: { _controller: BackLocationBundle:Zone:delete }
+
+back_location_update2:
+    path: /updatevelo/{idz}
+    defaults: { _controller: BackLocationBundle:Velo:update2 }
+
+back_location_calendar:
+    path: /calendar
+    defaults: { _controller: BackLocationBundle:Velo:index}
+
+back_location_afficher:
+    path: /affichelocation
+    defaults: { _controller: BackLocationBundle:Location:affiche }
+Stat:
+    path: /Stat
+    defaults: { _controller: BackLocationBundle:Stat:Stat }
+

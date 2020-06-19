@@ -1,0 +1,21 @@
+front_location_homepage:
+    path:     /
+    defaults: { _controller: FrontLocationBundle:Default:index }
+
+front_location_afficher_zone:
+    path:     /afficherZone
+    defaults: { _controller: FrontLocationBundle:Zone:afficher }
+
+ront_location_afficher_velo:
+    path:     /afficherVelo/{id}
+    defaults: { _controller: FrontLocationBundle:Velo:afficher }
+
+ront_location_rechercher:
+    path:     /rechercher/{id}
+    defaults: { _controller: FrontLocationBundle:Velo:rechercher }
+
+ont_location_try:
+    path:     /afficherVelo/list/{id}
+    defaults: { _controller: FrontLocationBundle:Velo:list, id: 0 }
+    requirements:
+        id: ^[0-9]\d*

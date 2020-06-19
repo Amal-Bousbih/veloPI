@@ -1,0 +1,39 @@
+security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
+
+    role_hierarchy:
+        ROLE_USER:        ROLE_VISITEUR
+        ROLE_ADMIN:       ROLE_USER
+        ROLE_SUPER_ADMIN: ROLE_ADMIN
+        ROLE_EXTRA_ADMIN: ROLE_SUPER_ADMIN
+
+    providers:
+        fos_userbundle:
+            id: fos_user.user_provider.username
+
+    firewalls:
+        main:
+            pattern: ^/
+            form_login:
+                always_use_default_target_path: false
+                default_target_path: /
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
+
+            logout:       true
+            anonymous:    true
+
+    access_control:
+        - { path: ^/login$, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin, role: ROLE_SUPER_ADMIN }
+        - { path: ^/ajouterZone, role: ROLE_SUPER_ADMIN }
+        - { path: ^/afficherZones, role: ROLE_SUPER_ADMIN }
+        - { path: ^/ajouterVel, role: ROLE_SUPER_ADMIN }
+        - { path: ^/update, role: ROLE_SUPER_ADMIN }
+        - { path: ^/afficherVelos, role: ROLE_SUPER_ADMIN }
+        - { path: ^/deleteZones, role: ROLE_SUPER_ADMIN }
+        - { path: ^/affichelocation, role: ROLE_SUPER_ADMIN }
+        - { path: ^/Stat, role: ROLE_SUPER_ADMIN }

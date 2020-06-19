@@ -1,0 +1,140 @@
+{% extends 'back.html.twig' %}
+{% block title %} Espace Admin - Accueil {% endblock %}
+
+{% block content %}
+    <div class="col-lg-3">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#Amal tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <input class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+    </div>
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Liste Zones</strong>
+                    </div>
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Zone</th>
+                                <th>Nom</th>
+                                <th>Debut service</th>
+                                <th>Type</th>
+                                <th>Disponible</th>
+                                <th>Prix</th>
+                                <th> </th>
+                            </tr>
+                            </thead>
+                            <tbody id="Amal">
+                            {% for velo in velos %}
+                                <tr>
+                                    <td>{{ velo.id }}</td>
+                                    <td>{{ velo.zone.nom }}</td>
+                                    <td>{{ velo.nom }}</td>
+                                    <td>{{ velo.Debutservice.date|date("m/d/Y") }}</td>
+                                    <td>{{ velo.type }}</td>
+                                    <td>{{ velo.disponible}}</td>
+                                    <td>{{ velo.prix}}</td>
+                                    <td><a href="{{ path('back_location_update2' ,{'idz':velo.idz})}}" >Modifier</a></td>
+
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Calender Chart Weather  -->
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <!-- <h4 class="box-title">Chandler</h4> -->
+                    <div class="calender-cont widget-calender">
+                        <div id="calendar"></div>
+                    </div>
+                </div>
+            </div><!-- /.card -->
+        </div>
+
+
+    <!-- /Calender Chart Weather -->
+    <!-- Modal - Calendar - Add New Event -->
+    <div class="modal fade none-border" id="event-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><strong>Add New Event</strong></h4>
+                </div>
+                <div class="modal-body"></div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
+                    <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#event-modal -->
+    <!-- Modal - Calendar - Add Category -->
+    <div class="modal fade none-border" id="add-category">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title"><strong>Add a category </strong></h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <label class="control-label">Category Name</label>
+                                <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"/>
+                            </div>
+                            <div class="col-md-12">
+                                <label class="control-label">Choose Category Color</label>
+                                <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                                    <option value="success">Success</option>
+                                    <option value="danger">Danger</option>
+                                    <option value="info">Info</option>
+                                    <option value="pink">Pink</option>
+                                    <option value="primary">Primary</option>
+                                    <option value="warning">Warning</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /#add-category -->
+    </div>
+    <!-- .animated -->
+    </div>
+    <!-- /.content -->
+    <div class="clearfix"></div>
+
+{% endblock %}

@@ -1,0 +1,9 @@
+location_homepage:
+  path:     /
+  defaults: { _controller: LocationBundle:Default:index }
+
+formulaire:
+  path:    formulaire/{id}/{idz}
+  defaults: { _controller: LocationBundle:Location:formulaire }
+  requirements:
+       idz: \d+

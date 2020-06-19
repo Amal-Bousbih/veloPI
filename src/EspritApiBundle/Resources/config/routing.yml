@@ -1,0 +1,64 @@
+esprit_api_homepage:
+    path:     /
+    defaults: { _controller: EspritApiBundle:Default:index }
+all:
+    path:  /zone/all
+    defaults: { _controller: EspritApiBundle:TaskController:all }
+find_task:
+    path:  /tasks/find/{id}
+    defaults: { _controller: EspritApiBundle:TaskController:find }
+
+create_task:
+    path:  /zones/new
+    defaults: { _controller: EspritApiBundle:TaskController:new }
+
+all2:
+    path:  /velo/ListVelo
+    defaults: { _controller: EspritApiBundle:TaskController:ListVelo }
+
+AjoutVelo:
+    path:  /velos/AjoutVelo
+    defaults: { _controller: EspritApiBundle:TaskController:AjoutVelo }
+
+Afficher  _Location:
+    path:  /location/AfficherLocation
+    defaults: { _controller: EspritApiBundle:TaskController:AfficherLocation }
+
+
+AddLocation:
+    path:  /location/AddLocation
+    defaults: { _controller: EspritApiBundle:TaskController:AddLocation }
+
+Afficher_user:
+    path:  /user
+    defaults: { _controller: EspritApiBundle:TaskController:ListUser }
+
+Update_user:
+    path:  /update/{id}
+    defaults: { _controller: EspritApiBundle:TaskController:updateUser }
+
+getidromuser:
+    path:  /getidfromuser/{username}
+    defaults: { _controller: EspritApiBundle:TaskController:getuserfromid }
+
+getidFromZone:
+    path:  /getidfromzone/{nom}
+    defaults: { _controller: EspritApiBundle:TaskController:getidfromZone }
+
+getidFromVelo:
+    path:  /getidfromvelo/{nom}
+    defaults: { _controller: EspritApiBundle:TaskController:getidfromVelo }
+
+getzoneo:
+    path:  /getzoen/{zone}
+    defaults: { _controller: EspritApiBundle:TaskController:getVelofromZone }
+
+
+getidZone:
+    path:  /getidzone/{nom}
+    defaults: { _controller: EspritApiBundle:TaskController:getidfromZone2 }
+
+
+showProdMobileSingle:
+    path:     /ShowMobileSingle/{idz}
+    defaults: { _controller: EspritApiBundle:TaskController:ShowMobileSingle }

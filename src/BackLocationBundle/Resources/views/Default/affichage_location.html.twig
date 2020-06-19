@@ -1,0 +1,75 @@
+{% extends 'back.html.twig' %}
+{% block title %} Espace Admin - Accueil {% endblock %}
+
+{% block content %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#Amal tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+    </script>
+    <input class="form-control" id="myInput" type="text" id="navbar-search-input" placeholder="Search now" aria-label="search" aria-describedby="search">
+
+    <div class="animated fadeIn">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Liste Locations</strong>
+                    </div>
+                    <div class="table-stats order-table ov-h">
+                        <table class="table ">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Date Debut</th>
+                                <th>Date Fin </th>
+                                <th> Zone </th>
+                                <th> Velo </th>
+                            </tr>
+                            </thead>
+                            <tbody id="Amal">
+                            {% for location in location %}
+                                <tr>
+                                    <td>{{ location.id }}</td>
+                                    <td>{{ location.datedebut.date|date }}</td>
+                                    <td>{{ location.datefin.date|date }}</td>
+                                    <td>{{ location.zone.id }}</td>
+                                    <td>{{ location.velo.id }}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div> <!-- /.table-stats -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="{{ asset('bundles/css/fullcalendar/fullcalendar.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/bootstrap-fullcalendar.css') }}" />
+
+    <div class="content-page">
+        <div class="content" style="background: white">
+            <h1>emploi du temps : </h1>
+
+
+            {% include 'ADesignsCalendarBundle::calendar.html.twig' %}
+
+
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="{{ asset('bundles/js/fullcalendar/lib/jquery.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/js/fullcalendar/lib/moment.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/js/fullcalendar/fullcalendar.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('bundles/js/fullcalendar/fullcalendar.default-settings.js') }}"></script>
+
+{% endblock %}

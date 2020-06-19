@@ -1,0 +1,30 @@
+esprit_api:
+    resource: "@EspritApiBundle/Resources/config/routing.yml"
+    prefix:   /api
+
+front_location:
+    resource: "@FrontLocationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+back_location:
+    resource: "@BackLocationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+location:
+    resource: "@LocationBundle/Resources/config/routing.yml"
+    prefix:   /
+
+user_user:
+    resource: "@UserUserBundle/Resources/config/routing.xml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+
+    type: annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+adesigns_calendar:
+    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
